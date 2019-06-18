@@ -32,6 +32,7 @@ sudo apt install python-pydot python-pydot-ng graphviz inkscape
     ```
     $ chmod +x build.sh
     $ ./build.sh
+    $ ./convert.sh
     ```
     
 3. Retrieve the generated SVG files from the `target/` directory.
