@@ -7,17 +7,23 @@ The charts are also available for download on the [download page](http://github.
 Any feedback is, of course, very welcome.
 
 ## Dependencies
-This program requires GraphViz to be installed.
+This program requires GraphViz and Inkscape to be installed.
 At a bash prompt, type the appropriate magic incantation or do it yourself using 
-[graphviz.org](http://www.graphviz.org/Download_macos.php):
+[graphviz.org](http://www.graphviz.org/Download_macos.php) and [https://inkscape.org/](Inkscape):
 
 **Mac OS**
 
-Use [Homebrew][], [MacPorts][] 
+[Homebrew][]
+
+    $ brew install graphviz inkscape
+    
+[MacPorts][]
+
+    $ sudo port install graphviz inkscape xorg-server
 
 **Ubuntu and Windows Subsystem for Linux**
 ```
-sudo apt install python-pydot python-pydot-ng graphviz
+sudo apt install python-pydot python-pydot-ng graphviz inkscape
 ```
     
 ## How to build
