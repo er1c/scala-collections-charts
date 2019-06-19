@@ -16,15 +16,27 @@ You only need to install [https://inkscape.org/](Inkscape) if you want `png` fil
 
 #### HomebrewW
 
-    $ brew install graphviz inkscape
+    $ brew install graphviz
+
+If you prefer `png` files, also type:
+
+    $ brew install inkscape
 
 #### MacPorts
 
-    $ sudo port install graphviz inkscape xorg-server
+    $ sudo port install graphviz
+
+If you prefer `png` files, also type:
+
+    $ sudo port install inkscape xorg-server
 
 ### Ubuntu and Windows Subsystem for Linux
 
-    $ sudo apt install python-pydot python-pydot-ng graphviz inkscape
+    $ sudo apt install python-pydot python-pydot-ng graphviz
+
+    If you prefer `png` files, also type:
+
+    $ sudo apt install inkscape
 
 ## How to build
 1. Clone this git repository to any directory.
@@ -34,7 +46,7 @@ You only need to install [https://inkscape.org/](Inkscape) if you want `png` fil
     $ ./build.sh
     ```
 
-3. Retrieve the generated SVG files from the `target/` directory.
+3. Retrieve the generated `svg` and/or `ps` files from the `target/` directory.
 4. If you prefer `png` files, next run:
     ```
     $ ./convert.sh
