@@ -34,7 +34,7 @@ If you prefer `png` files, also type:
 
     $ sudo apt install python-pydot python-pydot-ng graphviz
 
-    If you prefer `png` files, also type:
+If you prefer `png` files, also type:
 
     $ sudo apt install inkscape
 
@@ -62,7 +62,7 @@ Processing file 'src/scala.collection.gv'...
 Processing file 'src/scala.collection.immutable.gv'...
 Processing file 'src/scala.collection.mutable.gv'...
 (python3) mslinn@camille scala-collections-charts (master)
-$ l target
+$ ls -alF target
 .rwxrwxrwx  mslinn  mslinn   6.4 KB  Mon Jun 17 17:50:59 2019    legend.ps*
 .rwxrwxrwx  mslinn  mslinn   2.8 KB  Mon Jun 17 17:50:59 2019    legend.svg*
 .rwxrwxrwx  mslinn  mslinn  29.4 KB  Mon Jun 17 17:50:59 2019    scala.collection.immutable.ps*
