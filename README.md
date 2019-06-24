@@ -1,5 +1,5 @@
 # Scala 2.13 Collection API Charts
-This is a small collection of Graphviz `.dot` files containing the chart description for the most relevant types
+This is a small collection of Graphviz [`.dot` files](https://en.wikipedia.org/wiki/DOT_(graph_description_language)) containing the chart description for the most relevant types
 of the **Scala 2.13 Collection API**.
 You can see the end result on [this page](http://www.decodified.com/scala/collections-api.xml).
 
@@ -7,36 +7,23 @@ The charts are also available for download on the [download page](http://github.
 Any feedback is, of course, very welcome.
 
 ## Dependencies
-This program requires GraphViz and Inkscape to be installed.
+This program requires GraphViz to be installed.
 At a `bash` prompt, type the appropriate magic incantation or do it yourself using
 [graphviz.org](http://www.graphviz.org/Download_macos.php).
-You only need to install [https://inkscape.org/](Inkscape) if you want `png` files instead of `svg` files.
 
 ### Mac OS
 
-#### HomebrewW
+#### Homebrew
 
     $ brew install graphviz
-
-If you prefer `png` files, also type:
-
-    $ brew install inkscape
 
 #### MacPorts
 
     $ sudo port install graphviz
 
-If you prefer `png` files, also type:
-
-    $ sudo port install inkscape xorg-server
-
 ### Ubuntu and Windows Subsystem for Linux
 
     $ sudo apt install python-pydot python-pydot-ng graphviz
-
-If you prefer `png` files, also type:
-
-    $ sudo apt install inkscape
 
 ## How to build
 1. Clone this git repository to any directory.
@@ -46,32 +33,31 @@ If you prefer `png` files, also type:
     $ ./build.sh
     ```
 
-3. Retrieve the generated `svg` and/or `ps` files from the `target/` directory.
-4. If you prefer `png` files, next run:
-    ```
-    $ ./convert.sh
-    ```
+3. Retrieve the generated `svg`, `png` and/or `ps` files from the `target/` directory.
 
 ### Sample Session
 
 ```bash
 $ ./build.sh
-Generating SVGs and PSs in /target directory...
+Generating PNGs, SVGs and PSs in the target/ directory...
 Processing file 'src/legend.gv'...
 Processing file 'src/scala.collection.gv'...
 Processing file 'src/scala.collection.immutable.gv'...
 Processing file 'src/scala.collection.mutable.gv'...
-(python3) mslinn@camille scala-collections-charts (master)
 
-$ ls -alF target
-.rwxrwxrwx  mslinn  mslinn   6.4 KB  Mon Jun 17 17:50:59 2019    legend.ps*
-.rwxrwxrwx  mslinn  mslinn   2.8 KB  Mon Jun 17 17:50:59 2019    legend.svg*
-.rwxrwxrwx  mslinn  mslinn  29.4 KB  Mon Jun 17 17:50:59 2019    scala.collection.immutable.ps*
-.rwxrwxrwx  mslinn  mslinn  23.9 KB  Mon Jun 17 17:50:59 2019    scala.collection.immutable.svg*
-.rwxrwxrwx  mslinn  mslinn  33.5 KB  Mon Jun 17 17:50:59 2019    scala.collection.mutable.ps*
-.rwxrwxrwx  mslinn  mslinn  28.2 KB  Mon Jun 17 17:50:59 2019    scala.collection.mutable.svg*
-.rwxrwxrwx  mslinn  mslinn  14.1 KB  Mon Jun 17 17:50:59 2019    scala.collection.ps*
-.rwxrwxrwx  mslinn  mslinn   9.6 KB  Mon Jun 17 17:50:59 2019    scala.collection.svg*
+$ ls -alF target/
+.rwxrwxrwx  mslinn  mslinn   7.2 KB  Mon Jun 24 12:45:06 2019    legend.png*
+.rwxrwxrwx  mslinn  mslinn   6.4 KB  Mon Jun 24 12:45:06 2019    legend.ps*
+.rwxrwxrwx  mslinn  mslinn   2.8 KB  Mon Jun 24 12:45:06 2019    legend.svg*
+.rwxrwxrwx  mslinn  mslinn    43 KB  Mon Jun 24 12:45:07 2019    scala.collection.immutable.png*
+.rwxrwxrwx  mslinn  mslinn  35.2 KB  Mon Jun 24 12:45:07 2019    scala.collection.immutable.ps*
+.rwxrwxrwx  mslinn  mslinn  28.9 KB  Mon Jun 24 12:45:07 2019    scala.collection.immutable.svg*
+.rwxrwxrwx  mslinn  mslinn    49 KB  Mon Jun 24 12:45:07 2019    scala.collection.mutable.png*
+.rwxrwxrwx  mslinn  mslinn  36.8 KB  Mon Jun 24 12:45:07 2019    scala.collection.mutable.ps*
+.rwxrwxrwx  mslinn  mslinn  30.6 KB  Mon Jun 24 12:45:07 2019    scala.collection.mutable.svg*
+.rwxrwxrwx  mslinn  mslinn  20.5 KB  Mon Jun 24 12:45:06 2019    scala.collection.png*
+.rwxrwxrwx  mslinn  mslinn  14.9 KB  Mon Jun 24 12:45:07 2019    scala.collection.ps*
+.rwxrwxrwx  mslinn  mslinn  10.4 KB  Mon Jun 24 12:45:06 2019    scala.collection.svg*
 ```
 
 ## License

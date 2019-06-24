@@ -9,7 +9,7 @@ if [[ -z "$( which dot )" ]]; then
   exit 1
 fi
 
-echo "Generating SVGs and PSs in /target directory..."
+echo "Generating PNGs, SVGs and PSs in the target/ directory..."
 
 for f in src/*.gv
 do
