@@ -29,7 +29,7 @@ digraph "scala.collection.immutable" {
           Range [fillcolor="steelblue", URL="http://www.scala-lang.org/api/current/scala/collection/immutable/Range.html"]
         iLinearSeq [label="LinearSeq", URL="http://www.scala-lang.org/api/current/scala/collection/immutable/LinearSeq.html"]
           List [fillcolor="steelblue", URL="http://www.scala-lang.org/api/current/scala/collection/immutable/List.html"]
-          Stream [fillcolor="steelblue", URL="http://www.scala-lang.org/api/current/scala/collection/immutable/Stream.html"]
+          LazyList [fillcolor="steelblue", URL="http://www.scala-lang.org/api/current/scala/collection/immutable/LazyList.html"]
           iQueue [fillcolor="steelblue", label="Queue", URL="http://www.scala-lang.org/api/current/scala/collection/immutable/Queue.html"]
           iStack [fillcolor="steelblue", label="Stack", URL="http://www.scala-lang.org/api/current/scala/collection/immutable/Stack.html"]
       iMap [label="Map", URL="http://www.scala-lang.org/api/current/scala/collection/immutable/Map.html"]
@@ -42,11 +42,11 @@ digraph "scala.collection.immutable" {
         iVectorMap [fillcolor="steelblue", label="VectorMap", URL="http://www.scala-lang.org/api/current/scala/collection/immutable/VectorMap.html"]
 
   // layout help
-  { rank=same; Level1; iIterable }
-  { rank=same; Level2; iSet; iMap }
-  { rank=same; Level3; iSeqMap }
-  { rank=same; Level4; iSeq; iTreeSeqMap; iVectorMap }
-  { rank=same; Level5; iIndexedSeq; iLinearSeq }
+  { rank=same; Level0; iIterable }
+  { rank=same; Level1; iSet; iMap }
+  { rank=same; Level2; iSeqMap }
+  { rank=same; Level3; iListMap; iSeq; iTreeSeqMap; iVectorMap }
+  { rank=same; Level4; iIndexedSeq; iLinearSeq }
 
   // edge definitions
   edge [style=solid, color=gray]
@@ -57,7 +57,7 @@ digraph "scala.collection.immutable" {
   iIndexedSeq -> Range
   iIndexedSeq -> String [style=dashed, URL="http://www.scala-lang.org/api/current/scala/collection/immutable/StringOps.html"]
   iSeq -> iLinearSeq -> List [penwidth=3]
-  iLinearSeq -> Stream
+  iLinearSeq -> LazyList
   iLinearSeq -> iQueue
   iLinearSeq -> iStack
   iIterable -> iSet
@@ -68,8 +68,8 @@ digraph "scala.collection.immutable" {
   iIterable -> iMap
   iMap -> iHashMap [penwidth=3]
   iMap -> iSortedMap -> TreeMap
-  iMap -> iListMap
   iMap -> iSeqMap
+  iSeqMap -> iListMap
   iSeqMap -> iTreeSeqMap
   iSeqMap -> iVectorMap
 }
