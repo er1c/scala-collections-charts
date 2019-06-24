@@ -16,11 +16,14 @@ digraph "scala.collection.immutable" {
   node [shape=box, style="rounded, filled", fontname=tahoma, fontsize=10, fontcolor=white, color=none, fillcolor=cadetblue]
     iIterable [label="Iterable", URL="http://www.scala-lang.org/api/current/scala/collection/immutable/Iterable.html"]
       iSet [label="Set", URL="http://www.scala-lang.org/api/current/scala/collection/immutable/Set.html"]
+        ImmutableKeySet [fillcolor="steelblue", URL="http://www.scala-lang.org/api/current/scala/collection/immutable/ImmutableKeySet.html"]
+        ImmutableKeySortedSet [fillcolor="steelblue", URL="http://www.scala-lang.org/api/current/scala/collection/immutable/ImmutableKeySortedSet.html"]
         iHashSet [fillcolor="steelblue", label="HashSet", URL="http://www.scala-lang.org/api/current/scala/collection/immutable/HashSet.html"]
         iSortedSet [label="SortedSet", URL="http://www.scala-lang.org/api/current/scala/collection/immutable/SortedSet.html"]
           TreeSet [fillcolor="steelblue", URL="http://www.scala-lang.org/api/current/scala/collection/immutable/TreeSet.html"]
         iBitSet [fillcolor="steelblue", label="BitSet", URL="http://www.scala-lang.org/api/current/scala/collection/immutable/BitSet.html"]
         ListSet [fillcolor="steelblue", URL="http://www.scala-lang.org/api/current/scala/collection/immutable/ListSet.html"]
+        ValueSet [fillcolor="steelblue", URL="http://www.scala-lang.org/api/current/scala/collection/immutable/ValueSet.html"]
       iSeq [label="Seq", URL="http://www.scala-lang.org/api/current/scala/collection/immutable/Seq.html"]
         iIndexedSeq [label="IndexedSeq", URL="http://www.scala-lang.org/api/current/scala/collection/immutable/IndexedSeq.html"]
           Vector [fillcolor="steelblue", URL="http://www.scala-lang.org/api/current/scala/collection/immutable/Vector.html"]
@@ -44,29 +47,32 @@ digraph "scala.collection.immutable" {
   // layout help
   { rank=same; Level0; iIterable }
   { rank=same; Level1; iSet; iMap }
-  { rank=same; Level2; iSeqMap }
-  { rank=same; Level3; iListMap; iSeq; iTreeSeqMap; iVectorMap }
+  { rank=same; Level2; iSeqMap; iSortedSet; iHashSet }
+  { rank=same; Level3; iListMap; ImmutableKeySet; ImmutableKeySortedSet; iSeq; iTreeSeqMap; iVectorMap }
   { rank=same; Level4; iIndexedSeq; iLinearSeq }
 
   // edge definitions
   edge [style=solid, color=gray]
-  iIterable -> iSeq [penwidth=3]
-  iSeq -> iIndexedSeq
-  iIndexedSeq -> Vector [penwidth=3]
-  iIndexedSeq -> NumericRange
-  iIndexedSeq -> Range
-  iIndexedSeq -> String [style=dashed, URL="http://www.scala-lang.org/api/current/scala/collection/immutable/StringOps.html"]
-  iSeq -> iLinearSeq -> List [penwidth=3]
+  iIterable -> iSeq
+  iIterable -> iSet
+  iIterable -> iMap
   iLinearSeq -> LazyList
   iLinearSeq -> iQueue
   iLinearSeq -> iStack
-  iIterable -> iSet
-  iSet -> iHashSet [penwidth=3]
+  iSeq -> iIndexedSeq
+  iSeq -> iLinearSeq -> List
+  iIndexedSeq -> Vector
+  iIndexedSeq -> NumericRange
+  iIndexedSeq -> Range
+  iIndexedSeq -> String [style=dashed, URL="http://www.scala-lang.org/api/current/scala/collection/immutable/StringOps.html"]
+  iSet -> iHashSet
   iSet -> iSortedSet -> TreeSet
   iSet -> iBitSet
+  iSet -> ImmutableKeySet
+  iSet -> ImmutableKeySortedSet
   iSet -> ListSet
-  iIterable -> iMap
-  iMap -> iHashMap [penwidth=3]
+  iSet -> ValueSet
+  iMap -> iHashMap
   iMap -> iSortedMap -> TreeMap
   iMap -> iSeqMap
   iSeqMap -> iListMap
