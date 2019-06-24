@@ -15,6 +15,7 @@ for f in src/*.gv
 do
   echo "Processing file '$f'..."
   out=`basename $f .gv`
+  dot -Tpng -o "target/${out}.png" $f
   dot -Tsvg -o "target/${out}.svg" $f
   dot -Tps2 -o "target/${out}.ps" $f
 done
