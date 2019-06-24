@@ -3,7 +3,7 @@
 // (C) 2010 by Mathias
 // (C) 2015 and 2019 by Mike Slinn
 
-// Traversable removed because it was deprecated in Scala 2.13
+// Traversable and OpenHashMap removed because they were deprecated in Scala 2.13
 digraph "scala.collection.mutable" {
   bgcolor=transparent
   dpi=68
@@ -19,8 +19,8 @@ digraph "scala.collection.mutable" {
     mMap [label="Map", URL="http://www.scala-lang.org/api/current/scala/collection/mutable/Map.html"]
       mHashMap [fillcolor="steelblue", label="HashMap", URL="http://www.scala-lang.org/api/current/scala/collection/mutable/HashMap.html"]
       WeakHashMap [fillcolor="steelblue", URL="http://www.scala-lang.org/api/current/scala/collection/mutable/WeakHashMap.html"]
-      OpenHashMap [fillcolor="steelblue", URL="http://www.scala-lang.org/api/current/scala/collection/mutable/OpenHashMap.html"]
       mListMap [fillcolor="steelblue", label="ListMap", URL="http://www.scala-lang.org/api/current/scala/collection/mutable/ListMap.html"]
+      MultiMap [URL="http://www.scala-lang.org/api/current/scala/collection/mutable/MultiMap.html"]
     mSeq [label="Seq", URL="http://www.scala-lang.org/api/current/scala/collection/mutable/Seq.html"]
       mIndexedSeq [label="IndexedSeq", URL="http://www.scala-lang.org/api/current/scala/collection/mutable/IndexedSeq.html"]
         ArrayBuffer [fillcolor="steelblue", URL="http://www.scala-lang.org/api/current/scala/collection/mutable/ArrayBuffer.html"] // also a Buffer
@@ -30,50 +30,59 @@ digraph "scala.collection.mutable" {
         StringBuilder [fillcolor="steelblue", URL="http://www.scala-lang.org/api/current/scala/collection/mutable/StringBuilder.html"]
       Buffer [URL="http://www.scala-lang.org/api/current/scala/collection/mutable/Buffer.html"]
         ListBuffer [fillcolor="steelblue", URL="http://www.scala-lang.org/api/current/scala/collection/mutable/ListBuffer.html"]
+        UnrolledBuffer [fillcolor="steelblue", URL="http://www.scala-lang.org/api/current/scala/collection/mutable/Buffer.html"]
       mStack [fillcolor="steelblue", label="Stack", URL="http://www.scala-lang.org/api/current/scala/collection/mutable/Stack.html"]
       ArrayStack [fillcolor="steelblue", URL="http://www.scala-lang.org/api/current/scala/collection/mutable/ArrayStack.html"]
       PriorityQueue [fillcolor="steelblue", URL="http://www.scala-lang.org/api/current/scala/collection/mutable/PriorityQueue.html"]
-        mLinearSeq [label="LinearSeq", URL="http://www.scala-lang.org/api/current/scala/collection/immutable/LinearSeq.html"]
-          mQueue [label="Queue", URL="http://www.scala-lang.org/api/current/scala/collection/mutable/Queue.html"]
+          mQueue [fillcolor="steelblue", label="Queue", URL="http://www.scala-lang.org/api/current/scala/collection/mutable/Queue.html"]
     mSeqMap [label="SeqMap", URL="http://www.scala-lang.org/api/current/scala/collection/mutable/SeqMap.html"]
       LinkedHashMap [fillcolor="steelblue", label="LinkedHashMap", URL="http://www.scala-lang.org/api/current/scala/collection/mutable/LinkedHashMap.html"]
     mSet [label="Set", URL="http://www.scala-lang.org/api/current/scala/collection/mutable/Set.html"]
       mHashSet [fillcolor="steelblue", label="HashSet", URL="http://www.scala-lang.org/api/current/scala/collection/mutable/HashSet.html"]
       mBitSet [fillcolor="steelblue", label="BitSet", URL="http://www.scala-lang.org/api/current/scala/collection/mutable/BitSet.html"]
       LinkedHashSet [fillcolor="steelblue", URL="http://www.scala-lang.org/api/current/scala/collection/mutable/LinkedHashSet.html"]
+      SortedSet [fillcolor="steelblue", URL="http://www.scala-lang.org/api/current/scala/collection/mutable/SortedSet.html"]
+      TreeSet [fillcolor="steelblue", URL="http://www.scala-lang.org/api/current/scala/collection/mutable/TreeSet.html"]
 
   // layout help
   { rank=same; Level0; mIterable }
-  { rank=same; Level1; mSet; mMap}
-  { rank=same; Level2; WeakHashMap; OpenHashMap; ImmutableMapAdaptor; ImmutableSetAdaptor; mSeqMap; MultiMap }
+  { rank=same; Level1; mSet; mMap; PriorityQueue }
+  { rank=same; Level2; WeakHashMap; mSeqMap; MultiMap }
   { rank=same; Level3; LinkedHashMap }
   { rank=same; Level4; mSeq }
   { rank=same; Level5;  }
-  { rank=same; Level6; ArraySeq; mStack; ArrayStack; PriorityQueue }
+  { rank=same; Level6; ArraySeq; ArrayStack }
+  { rank=same; Level7; mStack }
 
   // edge definitions
   edge [style=solid, color=gray]
+  mIterable -> mSet
+  mIterable -> mSeq
+  mIterable -> mMap
+  mIterable -> PriorityQueue
+  mSeq -> ArrayStack
+  mSeq -> Buffer
+  mSeq -> mIndexedSeq
   mIndexedSeq -> ArraySeq
   mIndexedSeq -> Array [style=dashed, URL="http://www.scala-lang.org/api/current/scala/collection/mutable/ArrayOps.html"]
   mIndexedSeq -> StringBuilder
   mIndexedSeq -> ArrayDeque
-  mSeq -> mLinearSeq
-  mSeq -> Buffer
-  Buffer -> ArrayBuffer [penwidth=3]
+  mIndexedSeq -> mQueue
+  mIndexedSeq -> ArrayBuffer[style=dashed]
+  Buffer -> ArrayBuffer
   Buffer -> ListBuffer
-  mSeq -> ArrayStack
-  mIterable -> mSet
-  mSet -> mHashSet [penwidth=3]
+  Buffer -> ArrayDeque[style=dashed]
+  Buffer -> UnrolledBuffer
+  mSet -> mHashSet
   mSet -> mBitSet
   mSet -> LinkedHashSet
-  mSet -> ImmutableSetAdaptor
-  mIterable -> mMap
-  mMap -> mHashMap [penwidth=3]
+  mSet -> SortedSet
+  mSet -> TreeSet
+  mMap -> mHashMap
   mMap -> WeakHashMap
-  mMap -> OpenHashMap
   mMap -> mListMap
   mMap -> MultiMap
-  mMap -> ImmutableMapAdaptor
   mMap -> mSeqMap
   mSeqMap -> LinkedHashMap
+  ArrayDeque -> mStack
 }
