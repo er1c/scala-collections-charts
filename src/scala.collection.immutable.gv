@@ -1,6 +1,7 @@
 // dot graphs for the Scala 2.13 Collections API
 // package scala.collection.immutable
 // (C) 2010 by Mathias
+// (C) 2015 and 2019 by Mike Slinn
 
 digraph "scala.collection.immutable" {
   bgcolor=transparent
@@ -35,13 +36,16 @@ digraph "scala.collection.immutable" {
         iHashMap [fillcolor="steelblue", label="HashMap", URL="http://www.scala-lang.org/api/current/scala/collection/immutable/HashMap.html"]
         iSortedMap [label="SortedMap", URL="http://www.scala-lang.org/api/current/scala/collection/immutable/SortedMap.html"]
           TreeMap [fillcolor="steelblue", URL="http://www.scala-lang.org/api/current/scala/collection/immutable/TreeMap.html"]
+      iSeqMap [label="SeqMap", URL="http://www.scala-lang.org/api/current/scala/collection/immutable/SeqMap.html"]
         iListMap [fillcolor="steelblue", label="ListMap", URL="http://www.scala-lang.org/api/current/scala/collection/immutable/ListMap.html"]
+        iTreeSeqMap [fillcolor="steelblue", label="TreeSeqMap", URL="http://www.scala-lang.org/api/current/scala/collection/immutable/TreeSeqMap.html"]
+        iVectorMap [fillcolor="steelblue", label="VectorMap", URL="http://www.scala-lang.org/api/current/scala/collection/immutable/VectorMap.html"]
 
   // layout help
   { rank=same; Level1; iIterable }
   { rank=same; Level2; iSet; iMap }
-  { rank=same; Level3; }
-  { rank=same; Level4; iSeq }
+  { rank=same; Level3; iSeqMap }
+  { rank=same; Level4; iSeq; iTreeSeqMap; iVectorMap }
   { rank=same; Level5; iIndexedSeq; iLinearSeq }
 
   // edge definitions
@@ -65,4 +69,7 @@ digraph "scala.collection.immutable" {
   iMap -> iHashMap [penwidth=3]
   iMap -> iSortedMap -> TreeMap
   iMap -> iListMap
+  iMap -> iSeqMap
+  iSeqMap -> iTreeSeqMap
+  iSeqMap -> iVectorMap
 }

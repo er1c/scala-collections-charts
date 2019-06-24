@@ -26,8 +26,11 @@ digraph "scala.collection" {
   // edge definitions
   edge [style=solid, color=gray]
   Iterable -> Seq -> IndexedSeq
+  IndexedSeq -> ArrayDeque
   Seq -> LinearSeq
   Iterable -> Set -> SortedSet
   Set -> BitSet
-  Iterable -> Map -> SortedMap
+  Iterable -> Map
+  Map -> SortedMap
+  Map -> SeqMap
 }

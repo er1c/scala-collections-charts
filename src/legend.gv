@@ -1,7 +1,6 @@
 // dot graphs for the Scala 2.13 Collections API
 // legend
 // (C) 2010 by Mathias
-// (C) 2015 and 2019 by Mike Slinn
 
 digraph legend {
   bgcolor=transparent
