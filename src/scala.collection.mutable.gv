@@ -21,6 +21,7 @@ digraph "scala.collection.mutable" {
       WeakHashMap [fillcolor="steelblue", URL="http://www.scala-lang.org/api/current/scala/collection/mutable/WeakHashMap.html"]
       mListMap [fillcolor="steelblue", label="ListMap", URL="http://www.scala-lang.org/api/current/scala/collection/mutable/ListMap.html"]
       MultiMap [URL="http://www.scala-lang.org/api/current/scala/collection/mutable/MultiMap.html"]
+      CollisionProofHashMap [fillcolor="steelblue", URL="http://www.scala-lang.org/api/current/scala/collection/mutable/CollisionProofHashMap.html"]
     mSeq [label="Seq", URL="http://www.scala-lang.org/api/current/scala/collection/mutable/Seq.html"]
       mIndexedSeq [label="IndexedSeq", URL="http://www.scala-lang.org/api/current/scala/collection/mutable/IndexedSeq.html"]
         ArrayBuffer [fillcolor="steelblue", URL="http://www.scala-lang.org/api/current/scala/collection/mutable/ArrayBuffer.html"] // also a Buffer
@@ -47,7 +48,7 @@ digraph "scala.collection.mutable" {
   // layout help
   { rank=same; Level0; mIterable }
   { rank=same; Level1; mSet; mMap; PriorityQueue }
-  { rank=same; Level2; WeakHashMap; mSeqMap; MultiMap }
+  { rank=same; Level2; WeakHashMap; mSeqMap; MultiMap; CollisionProofHashMap }
   { rank=same; Level3; LinkedHashMap }
   { rank=same; Level4; mSeq }
   { rank=same; Level5;  }
@@ -83,6 +84,7 @@ digraph "scala.collection.mutable" {
   mMap -> mListMap
   mMap -> MultiMap
   mMap -> mSeqMap
+  mMap -> CollisionProofHashMap
   mSeqMap -> LinkedHashMap
   ArrayDeque -> mStack
 }
