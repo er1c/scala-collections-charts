@@ -7,7 +7,15 @@ The charts are also available for download on the [download page](http://github.
 Any feedback is, of course, very welcome.
 
 ## Goals and Non-Goals of This Project
-The goal of this project is merely to provide end users an intuitive understanding of the collection classes. 
+The goal of this project is merely to provide end users an intuitive understanding of the collection classes.
+Deprecated classes and interfaces were omitted, as well as some obscure concrete classes. 
+The principle for deciding what should be included was along the lines of the Pareto Principle: 
+delivering 80% of the value by only considering 20% of the detail. 
+
+Many more people will be helped if most readers can easily understand a simpler but deliberately incomplete set of charts. 
+Scala is very large and quite complex. 
+Most programmers are unwilling to endure the pain necessary to grok it sufficiently well in order to work with it effectively. 
+Completeness is the enemy of understanding, rather like perfect is the enemy of the good (enough).
 
   * Conceptually artifacts like the [`IterableOnce` trait](https://www.scala-lang.org/api/current/scala/collection/IterableOnce.html) 
     are implementation details to everyone except to library authors of collection classes, 
