@@ -6,6 +6,15 @@ You can see the end result on [this page](http://www.decodified.com/scala/collec
 The charts are also available for download on the [download page](http://github.com/sirthias/scala-collections-charts/downloads).
 Any feedback is, of course, very welcome.
 
+## Goals and Non-Goals of This Project
+The goal of this project is merely to provide end users an intuitive understanding of the collection classes. 
+
+  * Conceptually artifacts like the [`IterableOnce` trait](https://www.scala-lang.org/api/current/scala/collection/IterableOnce.html) 
+    are implementation details to everyone except to library authors of collection classes, 
+    consequently `IterableOnce` is not mentioned and `Iterable` is shown instead.
+  * Many or even most mixins are not shown, or a confusing forest of or lines would result.
+  * I don't have a firm set of rules on how to determine on what and how to represent the content; suggestions are most welcome.
+
 ## Dependencies
 This program requires GraphViz to be installed.
 At a `bash` prompt, type the appropriate magic incantation or do it yourself using
